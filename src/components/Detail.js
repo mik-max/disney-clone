@@ -1,5 +1,6 @@
 import styled from "styled-components";
-function Detail (){
+import Movies from "./Movies";
+function Detail (props){
      return (
           <Container>
                <Background>

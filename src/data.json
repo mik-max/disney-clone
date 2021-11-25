@@ -1,0 +1,80 @@
+{
+    "Movies": [
+          {
+               "title": "Alladin",
+               "src": "/images/Alladin.jfif",
+               "description": "",
+               "id": "1"
+          },
+          {
+               "title": "Brave",
+               "src": "/images/Brave.jfif",
+               "description": "",
+               "id": "2"
+          },
+          {
+               "title": "The Lion King",
+               "src": "/images/Lion-King.jfif",
+               "description": "",
+               "id": "3"
+          },
+          {
+               "title": "Encanto",
+               "src": "/images/Encanto.jfif",
+               "description": "",
+               "id": "4"
+          },
+          {
+               "title": "Eternals",
+               "src": "/images/Eternals.jfif",
+               "description": "",
+               "id": "5"
+          },
+          {
+               "title": "Frozen",
+               "src": "/images/Frozen.jfif",
+               "description": "",
+               "id": "6"
+          },
+          {
+               "title": "Home",
+               "src": "/images/home.jfif",
+               "description": "",
+               "id": "7"
+          },
+          {
+               "title": "Moana",
+               "src": "/images/Moana.jfif",
+               "description": "",
+               "id": "8"
+          },
+          
+          {
+               "title": "Luca",
+               "src": "/images/Luca.jfif",
+               "description": "",
+               "id": "9"
+          },
+          {
+               "title": "Raya",
+               "src": "/images/Raya.jfif",
+               "description": "",
+               "id": "10"
+          },
+          {
+               "title": "Fast and Furious 9",
+               "src": "/images/fastandfurious9.jfif",
+               "description": "",
+               "id": "11"
+          },
+          {
+               "title": "Lockdown",
+               "src": "/images/Lockdown.jfif",
+               "description": "",
+               "id": "12"
+          }
+          
+          
+    ]
+}
+     

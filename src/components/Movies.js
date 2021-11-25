@@ -1,45 +1,14 @@
 import styled from "styled-components";
-function Movies (){
+import {Link} from 'react-router-dom'
+function Movies (props){
+     function selectMovie(){
+          
+     }
      return (
           <Container>
                <h4> ---- Recommended For You</h4>
                <Content>
-                    <Wrap>
-                         <img src = '/images/Alladin.jfif' />
-                    </Wrap>
-                    <Wrap>
-                         <img src = '/images/Brave.jfif' />
-                    </Wrap>
-                    <Wrap>
-                         <img src = '/images/Lion-King.jfif' />
-                    </Wrap>
-                    <Wrap>
-                         <img src = '/images/Encanto.jfif' />
-                    </Wrap>
-                    <Wrap>
-                         <img src = '/images/Eternals.jfif' />
-                    </Wrap>
-                    <Wrap>
-                         <img src = '/images/Frozen.jfif' />
-                    </Wrap>
-                    <Wrap>
-                         <img src = '/images/home.jfif' />
-                    </Wrap>
-                    <Wrap>
-                         <img src = '/images/Moana.jfif' />
-                    </Wrap>
-                    <Wrap>
-                         <img src = '/images/Luca.jfif' />
-                    </Wrap>
-                    <Wrap>
-                         <img src = '/images/Raya.jfif' />
-                    </Wrap>
-                    <Wrap>
-                         <img src = '/images/fastandfurious9.jfif' />
-                    </Wrap>
-                    <Wrap>
-                         <img src = '/images/Lockdown.jfif' />
-                    </Wrap>
+                    {props.movies.map(movie => <Wrap key = {movie.id}><Link to = "/detail"><img src = {movie.src} /></Link></Wrap> )}
                </Content>
           </Container>
      );

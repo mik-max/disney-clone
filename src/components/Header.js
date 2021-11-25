@@ -1,14 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import {Link} from 'react-router-dom'
 function Header(){
      return (
           <Nav>
               <Logo src ='/images/logo.svg' /> 
               <NavMenu>
-                 <a>
-                     <img src = '/images/home-icon.svg' />
-                     <span>Home</span>
-                 </a>
+               <a>
+                    <img src = '/images/home-icon.svg' />
+                    <span>Home</span>
+               </a> 
                  <a>
                      <img src = '/images/search-icon.svg' />
                      <span>Search</span>
@@ -49,11 +50,13 @@ const Logo = styled.img`
 `
 const NavMenu = styled.div`
      display: flex;
+     align-items: center;
      a{
           display: flex;
           align-items: center;
           padding: 0 12px;
           cursor: pointer;
+          text-transform: uppercase;
           img{
                height: 20px;
           }
