@@ -30,6 +30,11 @@ const Container = styled.div`
     grid-gap: 25px;
     grid-template-columns: repeat(5, minmax(0, 1fr)) ;
     padding: 30px 0px 26px;
+    @media (max-width: 640px){
+     display: grid;
+     grid-template-columns: repeat(3, minmax(0, 1fr));
+     grid-auto-flow:row dense;
+     }
     
 `
 const Wrap = styled.div`
@@ -47,5 +52,6 @@ const Wrap = styled.div`
           transform: scale(1.05);
           border-color: rgba(249, 249, 249, 0.8);
           box-shadow: rgb(0 0 0 / 80%) 0px 26px 30px -10px, rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+          
      }
 `

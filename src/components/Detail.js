@@ -1,13 +1,42 @@
 import styled from "styled-components";
-import Movies from "./Movies";
+import { useParams } from "react-router";
+import { useState,useEffect } from "react";
+
+ var imageId, description, title; 
 function Detail (props){
+     
+     const {id} = useParams();
+     const [isLoading, setIsLoading] = useState(true)
+     const [loadedMovies, setloadedMovies] = useState([]);
+     useEffect(() => {
+          setIsLoading(true)
+          fetch('https://disney-clone-99f2f-default-rtdb.firebaseio.com/Movies.json').then(response => {
+              return response.json();
+          }).then(data => {
+               const moviesArray = data;
+               for( let x = 0; x < moviesArray.length; x++){
+                    if(id == moviesArray[x].id){
+                         imageId = moviesArray[x].src;
+                         title = moviesArray[x].title;
+                         description = moviesArray[x].description; 
+                    }
+               }
+               
+            
+            setIsLoading(false)
+            setloadedMovies(moviesArray);
+            
+          });
+      }, []);
      return (
           <Container>
-               <Background>
+               <Background style ={{
+                    backgroundImage: 'url('+imageId+')'
+               }}>
                     <ImageTitle>
                          <img src ='/images/viewers-disney.png' />
                     </ImageTitle>
-                    <Controls className = "container-fluid">
+                    <Controls className = "container">
                          <PlayButton>
                               <img src = '/images/play-icon-black.png'/>
                               <span>PLAY</span>
@@ -23,11 +52,11 @@ function Detail (props){
                               <img src = '/images/group-icon.png' />
                          </GroupWatchButton>
                     </Controls>
-                    <Subtitle className = "container-fluid">
-                         2021 family fantasy movie
+                    <Subtitle className = "container">
+                         <h3>{title}</h3>
                     </Subtitle>
-                    <Description className = "container-fluid">
-                         At the 18-minute mark in Luca, "Il Gatto e La Volpe" plays as the title character and Alberto bond while having fun on land. Lyrically, the song tells a tongue-in-cheek story about a cat and fox who work as businessmen, which is ultimately what the Disney movie's leads do, at least in spirit, as they try to sell themselves as actual humans.
+                    <Description className = "container">
+                         {description}
                     </Description>
                </Background>
           </Container>
@@ -47,10 +76,11 @@ const Background = styled.div`
      bottom: 0;
      right: 0;
      z-index: -1;
-     background-image: url('/images/Luca.jfif');
      background-size: cover;
      background-repeat: no-repeat;
      background-position: center;
+     background-color: rgba(0, 0, 0, 0.7);
+     background-blend-mode: soft-light;
 
 `
 const ImageTitle = styled.div`
@@ -68,7 +98,10 @@ const Controls = styled.div`
      display: flex;
      
      align-items: center;
-`
+     @media (max-width: 480px){
+          flex-wrap: wrap;
+     }
+`    
 const PlayButton = styled.button`
      border-radius: 4px;
      font-size: 15px;
@@ -83,6 +116,10 @@ const PlayButton = styled.button`
      cursor: pointer;
      &:hover{
           background-color: rgb(198, 198, 198);
+     }
+     @media (max-width: 480px){
+          
+          margin-bottom: 15px
      }
 `
 const TrillerButton = styled(PlayButton)`
@@ -106,10 +143,17 @@ const AddButton = styled.button`
           font-size: 30px;
           color: white
      }
+     @media (max-width: 480px){
+          
+     }
      
 `
 const GroupWatchButton = styled(AddButton)`
      background-color: black;
+     @media (max-width: 480px){
+          margin-right: 10px;
+          margin-left: 0px
+     }
 `
 const Subtitle = styled.div`
      color: rgb(249, 249, 249);
