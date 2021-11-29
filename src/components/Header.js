@@ -15,19 +15,7 @@ function Header(){
      const userName = useSelector(selectUserName);
      const userPhoto = useSelector(selectUserPhoto);
      const [burgerStatus, setBurgerStatus] = useState(false);
-     useEffect(() =>{
-          const auth = getAuth(firebaseApp);
-          onAuthStateChanged(auth,  user => {
-           if(user){
-               dispatch(setUserLogin({
-                    name: user.displayName,
-                    email: user.email,
-                    photo: user.photoURL
-               }))
-               navigate("/")
-           }
-          })
-     }, [])
+
      const signIn = () => {
           const auth = getAuth(firebaseApp);
           
@@ -41,6 +29,20 @@ function Header(){
                navigate("/")
           });
      }
+     useEffect(() =>{
+          const auth = getAuth(firebaseApp);
+          onAuthStateChanged(auth,  user => {
+           if(user){
+               dispatch(setUserLogin({
+                    name: user.displayName,
+                    email: user.email,
+                    photo: user.photoURL
+               }))
+               navigate("/")
+           }
+          })
+     }, [])
+     
      const signout = () => {
           const auth = getAuth(firebaseApp);
           signOut(auth).then(()=>{
