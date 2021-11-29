@@ -16,7 +16,7 @@ function Login (){
                     </Description>
                     <CTALogo2 src = '/images/cta-logo-two.png' />
                </CTA>
-               <div className = "container" style = {{
+               {/* <div className = "container" style = {{
                     maxWidth: "400px"
                }}>
                     <Card className = "container" >
@@ -42,7 +42,7 @@ function Login (){
                     <div className ="w-100 text-center mt-2" >
                          Already have an account? Log In
                     </div>
-               </div>
+               </div> */}
                
           </Container>
      );
@@ -69,6 +69,13 @@ const CTA = styled.div`
      display: flex;
      flex-direction: column;
      align-items: center;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     @media (max-width: 480px){
+          padding: 80px 5px;
+     }
      
 `
 const CTALogo1 = styled.img``

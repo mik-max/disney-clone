@@ -17,6 +17,10 @@ const Container = styled.div`
      padding: 5px 5px;
      h4{
           padding-bottom: 10px;
+          @media (max-width: 640px){
+               font-size: 16px;
+          }
+          
      }
     
 `

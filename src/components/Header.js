@@ -26,7 +26,7 @@ function Header(){
                     email: user.email,
                     photo: user.photoURL
                }))
-               navigate("/")
+               navigate("/home")
           });
      }
      useEffect(() =>{
@@ -38,7 +38,7 @@ function Header(){
                     email: user.email,
                     photo: user.photoURL
                }))
-               navigate("/")
+               navigate("/home")
            }
           })
      }, [])
@@ -47,7 +47,7 @@ function Header(){
           const auth = getAuth(firebaseApp);
           signOut(auth).then(()=>{
                dispatch(setSignOut());
-               navigate("/login")
+               navigate("/")
           });
      }
       
@@ -62,7 +62,7 @@ function Header(){
                          <span><i className="fa fa-times" aria-hidden="true" onClick ={() => setBurgerStatus(false)}></i></span>
                     </CustomWrapper>
                     <li>
-                         <Link to = '/'>
+                         <Link to = '/home'>
                               <img src = '/images/home-icon.svg' />
                               <span>Home</span>
                          </Link>
@@ -94,7 +94,7 @@ function Header(){
                     <>
                         <NavMenu>
                               <li>
-                                   <Link to = '/'>
+                                   <Link to = '/home'>
                                         <img src = '/images/home-icon.svg' />
                                         <span>Home</span>
                                    </Link>
@@ -138,6 +138,9 @@ const Nav = styled.nav`
      justify-content: space-between;
      align-items: center;
      padding:0 36px;
+     @media(max-width: 480px){
+          padding:0 24px; 
+     }
 `
 const Logo = styled.img`
      width: 80px;
