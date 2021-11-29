@@ -1,9 +1,54 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import {Link} from 'react-router-dom';
 import { useState } from "react";
+import{selectUserName, selectUserPhoto, setUserLogin, setSignOut} from "../features/users/UserSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {firebaseApp, provider} from '../firebase';
+import {signInWithPopup, signOut} from 'firebase/auth'
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router";
+
 function Header(){
+     const dispatch = useDispatch()
+     const navigate = useNavigate();
+     const userName = useSelector(selectUserName);
+     const userPhoto = useSelector(selectUserPhoto);
      const [burgerStatus, setBurgerStatus] = useState(false);
+     useEffect(() =>{
+          const auth = getAuth(firebaseApp);
+          onAuthStateChanged(auth,  user => {
+           if(user){
+               dispatch(setUserLogin({
+                    name: user.displayName,
+                    email: user.email,
+                    photo: user.photoURL
+               }))
+               navigate("/")
+           }
+          })
+     }, [])
+     const signIn = () => {
+          const auth = getAuth(firebaseApp);
+          
+          signInWithPopup(auth, provider).then((result) => {
+               let user = result.user
+               dispatch(setUserLogin({
+                    name: user.displayName,
+                    email: user.email,
+                    photo: user.photoURL
+               }))
+               navigate("/")
+          });
+     }
+     const signout = () => {
+          const auth = getAuth(firebaseApp);
+          signOut(auth).then(()=>{
+               dispatch(setSignOut());
+               navigate("/login")
+          });
+     }
+      
      return (
           <Nav>
                <LeftMenu>
@@ -42,35 +87,43 @@ function Header(){
                     </li>
                </BurgerNavMenu>
               <Logo src ='/images/logo.svg' /> 
-              <NavMenu>
-                    <li>
-                         <Link to = '/'>
-                              <img src = '/images/home-icon.svg' />
-                              <span>Home</span>
-                         </Link>
-                    </li>
-                    <li>
-                         <img src = '/images/search-icon.svg' />
-                         <span>Search</span>
-                    </li>
-                    <li>
-                         <img src = '/images/watchlist-icon.svg' />
-                         <span>watchlist</span>
-                    </li>
-                    <li>
-                         <img src = '/images/original-icon.svg' />
-                         <span>Originals</span>
-                    </li>
-                    <li>
-                         <img src = '/images/movie-icon.svg' />
-                         <span>Movies</span>
-                    </li>
-                    <li>
-                         <img src = '/images/series-icon.svg' />
-                         <span>Series</span>
-                    </li>
-              </NavMenu>
-              <UserImg src= '/images/profile.PNG' />
+               {!userName ? 
+                    <Login onClick = {signIn}> Login</Login> :
+                    <>
+                        <NavMenu>
+                              <li>
+                                   <Link to = '/'>
+                                        <img src = '/images/home-icon.svg' />
+                                        <span>Home</span>
+                                   </Link>
+                              </li>
+                              <li>
+                                   <img src = '/images/search-icon.svg' />
+                                   <span>Search</span>
+                              </li>
+                              <li>
+                                   <img src = '/images/watchlist-icon.svg' />
+                                   <span>watchlist</span>
+                              </li>
+                              <li>
+                                   <img src = '/images/original-icon.svg' />
+                                   <span>Originals</span>
+                              </li>
+                              <li>
+                                   <img src = '/images/movie-icon.svg' />
+                                   <span>Movies</span>
+                              </li>
+                              <li>
+                                   <img src = '/images/series-icon.svg' />
+                                   <span>Series</span>
+                              </li>
+                         </NavMenu>
+                         <UserImg onClick = {signout}  src= {userPhoto} />
+                    </>
+                    
+              } 
+               
+              
           </Nav>
      );
 }
@@ -119,6 +172,7 @@ const NavMenu = styled.ul`
      span{
          font-size : 13px;
          letter-spacing: 1.42px;
+         color: white;
      }
      a{
           color: white;
@@ -198,5 +252,20 @@ const LeftMenu = styled.div`
      }
      @media(max-width: 768px){
           display: flex;
+     }
+`
+const Login = styled.div`
+     border: 1px solid #f9f9f9;
+     padding: 8px 16px;
+     border-radius:4px;
+     letter-spacing:1.5px;
+     text-transform:uppercase;
+     background-color: rgba(0, 0, 0, 0.6);
+     transition: all 0.2s ease 0s;
+     cursor: pointer;
+     &:hover{
+          background-color: #f9f9f9;
+          color: black;
+          border-color: transparent;
      }
 `

@@ -1,5 +1,10 @@
 import styled from "styled-components";
+import {Card, Form, Button } from 'react-bootstrap';
+import { useRef } from "react";
 function Login (){
+     const emailRef = useRef();
+     const passwordRef = useRef();
+     const paswordConfirmRef = useRef();
      return (
           <Container>
                <CTA className = "container">
@@ -11,6 +16,34 @@ function Login (){
                     </Description>
                     <CTALogo2 src = '/images/cta-logo-two.png' />
                </CTA>
+               <div className = "container" style = {{
+                    maxWidth: "400px"
+               }}>
+                    <Card className = "container" >
+                         <Card.Body>
+                              <h2 className = "text-center mt-2 text-dark">Sign Up</h2>
+                              <Form>
+                                   <Form.Group id ="email">
+                                        <Form.Label className = "text-dark">Email</Form.Label>
+                                        <Form.Control type = "email" ref ={emailRef} required />
+                                   </Form.Group>
+                                   <Form.Group id ="password">
+                                        <Form.Label  className = "text-dark">Passwod</Form.Label>
+                                        <Form.Control type = "password" ref ={passwordRef} required />
+                                   </Form.Group>
+                                   <Form.Group id ="password-confirm">
+                                        <Form.Label  className = "text-dark">Confirm Pasword</Form.Label>
+                                        <Form.Control type = "password" ref ={paswordConfirmRef} required />
+                                   </Form.Group>
+                                   <Button className = "w-100 mt-3 mb-3" type = "submit">Sign Up</Button>
+                              </Form>
+                         </Card.Body>
+                    </Card>
+                    <div className ="w-100 text-center mt-2" >
+                         Already have an account? Log In
+                    </div>
+               </div>
+               
           </Container>
      );
 }
@@ -20,7 +53,7 @@ const Container =styled.div`
    
      
      padding: 0;
-     height: 90vh;
+     min-height: 90vh;
      padding: relative;
      background-image: url('/images/login-background.jpg');
      background-size:cover;
