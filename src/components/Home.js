@@ -3,6 +3,7 @@ import { useState,useEffect } from "react";
 import ImageSlider from "./ImageSlider";
 import Viewers from "./Viewers";
 import Movies from "./Movies";
+import Loader from "./Loader";
 function Home(){
      const [isLoading, setIsLoading] = useState(true)
     const [loadedMovies, setloadedMovies] = useState([]);
@@ -21,8 +22,8 @@ function Home(){
    
     if(isLoading){
         return (
-            <section>
-                <p>Loading...</p>
+            <section className = "container">
+                <Loader></Loader>
             </section>
         )
     }
