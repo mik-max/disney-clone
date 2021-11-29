@@ -76,6 +76,7 @@ const Background = styled.div`
      bottom: 0;
      right: 0;
      z-index: -1;
+     width:100%;
      background-size: cover;
      background-repeat: no-repeat;
      background-position: center;

@@ -1,0 +1,31 @@
+[debug] [2021-11-29T23:41:55.621Z] ----------------------------------------------------------------------
+[debug] [2021-11-29T23:41:55.625Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2021-11-29T23:41:55.626Z] CLI Version:   9.23.0
+[debug] [2021-11-29T23:41:55.626Z] Platform:      win32
+[debug] [2021-11-29T23:41:55.627Z] Node Version:  v16.13.0
+[debug] [2021-11-29T23:41:55.639Z] Time:          Tue Nov 30 2021 00:41:55 GMT+0100 (West Africa Standard Time)
+[debug] [2021-11-29T23:41:55.640Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-11-29T23:41:55.773Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-11-29T23:41:55.774Z] > authorizing via signed-in user (michaelchinye2018@gmail.com)
+[debug] [2021-11-29T23:41:55.776Z] [iam] checking project disney-clone-99f2f for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-11-29T23:41:55.785Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/disney-clone-99f2f:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-11-29T23:41:57.349Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 29 Nov 2021 23:41:58 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1089","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-29T23:41:57.358Z] > refreshing access token with scopes: []
+[debug] [2021-11-29T23:41:57.359Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-11-29T23:41:57.719Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","date":"Mon, 29 Nov 2021 23:41:59 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-29T23:41:57.748Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/disney-clone-99f2f [none]
+[debug] [2021-11-29T23:42:18.845Z] Failed to make request to https://firebase.googleapis.com/v1beta1/projects/disney-clone-99f2f
+[debug] [2021-11-29T23:42:19.239Z] FirebaseError: Failed to make request to https://firebase.googleapis.com/v1beta1/projects/disney-clone-99f2f
+    at Client.doRequest (C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:213:19)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Client.request (C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:96:20)
+    at async Object.getFirebaseProject (C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\management\projects.js:290:21)
+    at async Object.getDefaultHostingSite (C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\getDefaultHostingSite.js:8:21)
+    at async requireHostingSite (C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\requireHostingSite.js:9:18)
+    at async Object.fn (C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\deploy.js:73:9)
+    at async C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\command.js:188:17
+[error] 
+[error] Error: Failed to get Firebase project disney-clone-99f2f. Please make sure the project exists and your account has permission to access it.
