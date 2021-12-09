@@ -118,6 +118,9 @@ const PlayButton = styled.button`
      &:hover{
           background-color: rgb(198, 198, 198);
      }
+     &:focus{
+          outline: none;
+     }
      @media (max-width: 480px){
           
           margin-bottom: 15px
@@ -130,7 +133,6 @@ const TrillerButton = styled(PlayButton)`
      text-transform: uppercase;
      &:hover{
           background-color: rgb(198, 198, 198);
-          color: rgb(249, 249, 249);
      }
 `
 const AddButton = styled.button`
@@ -147,6 +149,9 @@ const AddButton = styled.button`
      span{
           font-size: 30px;
           color: white
+     }
+     &:focus{
+          outline: none;
      }
      @media (max-width: 480px){
           
