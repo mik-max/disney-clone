@@ -6,16 +6,19 @@ import Home from './components/Home';
 import Header from './components/Header';
 import Detail from './components/Detail';
 import Login from './components/Login';
+import { MoviesProvider } from './components/Context';
 function App() {
   return (
-    <BrowserRouter >
-      <Header />
-      <Routes>
-        <Route path = "/" element={<Login />}  />
-        <Route path ="/detail/:id" element={<Detail />} />
-        <Route path = "/home" element={<Home />} />
-      </Routes>
-    </BrowserRouter>
+    <MoviesProvider>
+      <BrowserRouter >
+        <Header />
+        <Routes>
+          <Route path = "/" element={<Login />}  />
+          <Route path ="/detail/:id" element={<Detail />} />
+          <Route path = "/home" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
+    </MoviesProvider>
   );
 }
 

@@ -4,7 +4,7 @@ function Movies (props){
      
      return (
           <Container>
-               <h4> <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span> Recommended For You</h4>
+               <h4> <span><i className="fa fa-long-arrow-right" aria-hidden="true"></i></span> Recommended For You</h4>
                <Content>
                     {props.movies.map(movie => <Wrap key = {movie.id}><Link to ={`/detail/${movie.id}`}><img src = {movie.src} /></Link></Wrap> )}
                </Content>

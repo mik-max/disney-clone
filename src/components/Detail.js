@@ -1,33 +1,20 @@
 import styled from "styled-components";
 import { useParams } from "react-router";
-import { useState,useEffect } from "react";
-
+import { useState,useEffect, useContext } from "react";
+import Contexts from "./Context";
 var imageId, description, title; 
 function Detail (props){
-     
      const {id} = useParams();
-     const [isLoading, setIsLoading] = useState(true)
-     const [loadedMovies, setloadedMovies] = useState([]);
-     useEffect(() => {
-          setIsLoading(true)
-          fetch('https://disney-clone-99f2f-default-rtdb.firebaseio.com/Movies.json').then(response => {
-              return response.json();
-          }).then(data => {
-               const moviesArray = data;
-               for( let x = 0; x < moviesArray.length; x++){
-                    if(id == moviesArray[x].id){
-                         imageId = moviesArray[x].src;
-                         title = moviesArray[x].title;
-                         description = moviesArray[x].description; 
-                    }
-               }
-               
-            
-            setIsLoading(false)
-            setloadedMovies(moviesArray);
-            
-          });
-      }, []);
+     const movieDetails = useContext(Contexts);
+     let moviesArray = movieDetails.movies;
+     for( let x = 0; x < moviesArray.length; x++){
+          if(id == moviesArray[x].id){
+               imageId = moviesArray[x].src;
+               title = moviesArray[x].title;
+               description = moviesArray[x].description; 
+          }
+     }
+
      return (
           <Container>
                <Background style ={{

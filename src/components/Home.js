@@ -1,39 +1,22 @@
 import styled from "styled-components";
-import { useState,useEffect } from "react";
+import { useState,useEffect, useContext } from "react";
 import ImageSlider from "./ImageSlider";
 import Viewers from "./Viewers";
 import Movies from "./Movies";
 import Loader from "./Loader";
-function Home(){
-    const [isLoading, setIsLoading] = useState(true)
-    const [loadedMovies, setloadedMovies] = useState([]);
-    useEffect(() => {
-        setIsLoading(true)
-        fetch('https://disney-clone-99f2f-default-rtdb.firebaseio.com/Movies.json').then(response => {
-            return response.json();
-        }).then(data => {
+import Contexts from "./Context";
 
-          const moviesArray = data;
-          setIsLoading(false)
-          setloadedMovies(moviesArray);
-          
-        });
-    }, []);
-   
-    if(isLoading){
-        return (
-            <section className = "container">
-                <Loader></Loader>
-            </section>
-        )
-    }
-     
+function Home(props){
+    const displayMovies = useContext(Contexts);
      return(
-          <Container> 
-             <ImageSlider/>
-             <Viewers/>
-             <Movies movies = {loadedMovies} />
-          </Container>
+        <>
+        <Container> 
+            <ImageSlider/>
+            <Viewers/>
+            <Movies movies = {displayMovies.movies} />
+        </Container>
+        </>
+        
      );
 }
 export default Home;
