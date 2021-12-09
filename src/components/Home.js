@@ -5,12 +5,11 @@ import Viewers from "./Viewers";
 import Movies from "./Movies";
 import Loader from "./Loader";
 import Contexts from "./Context";
-
 function Home(props){
     const displayMovies = useContext(Contexts);
      return(
         <>
-        <Container> 
+        <Container > 
             <ImageSlider/>
             <Viewers/>
             <Movies movies = {displayMovies.movies} />

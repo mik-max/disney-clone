@@ -9,7 +9,7 @@ import {signInWithPopup, signOut} from 'firebase/auth'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router";
 
-function Header(){
+function Header(props){
      const dispatch = useDispatch()
      const navigate = useNavigate();
      const userName = useSelector(selectUserName);
