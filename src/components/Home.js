@@ -5,7 +5,7 @@ import Viewers from "./Viewers";
 import Movies from "./Movies";
 import Loader from "./Loader";
 function Home(){
-     const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
     const [loadedMovies, setloadedMovies] = useState([]);
     useEffect(() => {
         setIsLoading(true)

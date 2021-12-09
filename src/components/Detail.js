@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useParams } from "react-router";
 import { useState,useEffect } from "react";
 
- var imageId, description, title; 
+var imageId, description, title; 
 function Detail (props){
      
      const {id} = useParams();
@@ -128,6 +128,10 @@ const TrillerButton = styled(PlayButton)`
      border: 1px solid rgb(249, 249, 249);
      color: rgb(249, 249, 249);
      text-transform: uppercase;
+     &:hover{
+          background-color: rgb(198, 198, 198);
+          color: rgb(249, 249, 249);
+     }
 `
 const AddButton = styled.button`
      width:44px;

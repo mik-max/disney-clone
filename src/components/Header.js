@@ -51,7 +51,7 @@ function Header(){
           });
      }
       
-     return (
+     return ( 
           <Nav>
                <LeftMenu>
                     <a>Menu</a>
