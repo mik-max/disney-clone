@@ -13,8 +13,13 @@
       }
     ],
     "rules": {
-      ".read": false,
-      ".write": false
+      "some_path": {
+        "$uid": {
+          // Allow only authenticated content owners access to their data
+          ".read": "request.auth != null && request.auth.uid == $uid",
+          ".write": "request.auth != null && request.auth.uid == $uid"
+        }
+      }
     }
   }
   

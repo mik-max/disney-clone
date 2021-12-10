@@ -133,13 +133,12 @@ export default Header;
 
 const Nav = styled.nav`
      height: 70px;
-     width: auto;
      background: #090b13;
      display:flex;
      justify-content: space-between;
      align-items: center;
      padding:0 36px;
-     @media(max-width: 480px){
+     @media screen and (max-device-width: 480px) and (orientation: portrait){
           padding:0 24px; 
      }
 `
@@ -191,8 +190,12 @@ const NavMenu = styled.ul`
           color: white;
      
      }
-     
-     @media(max-width: 798px){
+     @media screen and (min-device-width: 768px) and  (max-device-width: 1024px) and (max-device-height: 1366px){
+          span{
+               font-size: 11px;
+          }
+     }
+     @media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (max-device-height: 1024px){
 
           display: none;
      }
@@ -258,7 +261,7 @@ const LeftMenu = styled.div`
           margin-right: 10px;
           flex-wrap: nowrap;
      }
-     @media(max-width: 798px){
+     @media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (max-device-height: 1024px){
           display: flex;
      }
 `
