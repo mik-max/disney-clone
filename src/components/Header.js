@@ -190,12 +190,8 @@ const NavMenu = styled.ul`
           color: white;
      
      }
+     
      @media(max-width: 798px){
-          span{
-               font-size: 11px;
-          }
-     }
-     @media(max-width: 768px){
 
           display: none;
      }
@@ -261,7 +257,7 @@ const LeftMenu = styled.div`
           margin-right: 10px;
           flex-wrap: nowrap;
      }
-     @media(max-width: 768px){
+     @media(max-width: 798px){
           display: flex;
      }
 `
