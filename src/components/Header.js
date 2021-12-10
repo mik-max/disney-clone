@@ -133,6 +133,7 @@ export default Header;
 
 const Nav = styled.nav`
      height: 70px;
+     width: auto;
      background: #090b13;
      display:flex;
      justify-content: space-between;
