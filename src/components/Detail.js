@@ -57,7 +57,7 @@ const Container = styled.div`
 `
 const Background = styled.div`
      min-height: 90vh;
-     padding: fixed;
+     position: fixed;
      top: 0;
      left: 0;
      bottom: 0;
