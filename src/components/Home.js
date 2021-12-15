@@ -22,7 +22,7 @@ export default Home;
 const Container = styled.main`
     min-height: 90vh;
     height: auto;
-    padding: 0 40px;
+    padding: 0 calc(3.5vw + 5px);
     background-image: url('/images/home-background.PNG') ;
     background-position:center;
     background-repeat:no-repeat;

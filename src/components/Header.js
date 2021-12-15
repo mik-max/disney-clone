@@ -195,7 +195,7 @@ const NavMenu = styled.ul`
                font-size: 11px;
           }
      }
-     @media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (max-device-height: 1024px){
+     @media screen and (max-width: 768px){
 
           display: none;
      }
@@ -261,7 +261,7 @@ const LeftMenu = styled.div`
           margin-right: 10px;
           flex-wrap: nowrap;
      }
-     @media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (max-device-height: 1024px){
+     @media screen and (max-width: 768px){
           display: flex;
      }
 `
