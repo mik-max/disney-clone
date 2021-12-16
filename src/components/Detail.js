@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useParams } from "react-router";
-import { useState,useEffect, useContext } from "react";
+import { useContext } from "react";
 import Contexts from "./Context";
 var imageId, description, title; 
 function Detail (props){
@@ -57,7 +57,6 @@ const Container = styled.div`
 `
 const Background = styled.div`
      min-height: 90vh;
-     position: fixed;
      top: 0;
      left: 0;
      bottom: 0;
