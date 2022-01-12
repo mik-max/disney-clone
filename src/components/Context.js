@@ -13,7 +13,6 @@ export function MoviesProvider(props){
           fetch('https://disney-clone-99f2f-default-rtdb.firebaseio.com/Movies.json').then(response => {
                return response.json();
            }).then(data => {
-   
              const moviesArray = data;
              setIsLoading(false)
              setLoadedMovies(moviesArray);
@@ -29,9 +28,9 @@ export function MoviesProvider(props){
           )
       }
       const values = {
-           movies: loadedMovies
+          movies: loadedMovies
       }
-      return <Contexts.Provider value = {values}>
+      return<Contexts.Provider value = {values}>
                {props.children}
           </Contexts.Provider>
 }

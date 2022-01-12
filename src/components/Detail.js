@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useParams } from "react-router";
 import { useContext } from "react";
 import Contexts from "./Context";
+import { Link } from "react-router-dom";
 var imageId, description, title; 
 function Detail (props){
      const {id} = useParams();
@@ -12,6 +13,7 @@ function Detail (props){
                imageId = moviesArray[x].src;
                title = moviesArray[x].title;
                description = moviesArray[x].description; 
+
           }
      }
 
@@ -24,10 +26,12 @@ function Detail (props){
                          <img src ='/images/viewers-disney.png' />
                     </ImageTitle>
                     <Controls className = "container">
-                         <PlayButton>
-                              <img src = '/images/play-icon-black.png'/>
-                              <span>PLAY</span>
-                         </PlayButton>
+                         {<Link to = {`/watch/${id}`}>
+                              <PlayButton>
+                                   <img src = '/images/play-icon-black.png'/>
+                                   <span>PLAY</span>
+                              </PlayButton>
+                         </Link>}
                          <TrillerButton>
                               <img src = '/images/play-icon-white.png'/>
                               <span>Triller</span>
@@ -83,7 +87,6 @@ const ImageTitle = styled.div`
 `
 const Controls = styled.div`
      display: flex;
-     
      align-items: center;
      @media (max-width: 480px){
           flex-wrap: wrap;

@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Header from './components/Header';
 import Detail from './components/Detail';
 import Login from './components/Login';
+import Watch from './components/Watch';
 import { MoviesProvider } from './components/Context';
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path = "/" element={<Login />}  />
           <Route path ="/detail/:id" element={<Detail />} />
           <Route path = "/home" element={<Home />} />
+          <Route path = "/watch/:id" element = {<Watch />} />
         </Routes>
       </BrowserRouter>
     </MoviesProvider>

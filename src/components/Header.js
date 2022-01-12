@@ -58,7 +58,7 @@ function Header(props){
                     <span><i className="fa fa-bars" aria-hidden="true" onClick = {() => setBurgerStatus(true)}></i></span>
                </LeftMenu>
                <BurgerNavMenu show = {burgerStatus}>
-                    <CustomWrapper>
+                    <CustomWrapper>  
                          <span><i className="fa fa-times" aria-hidden="true" onClick ={() => setBurgerStatus(false)}></i></span>
                     </CustomWrapper>
                     <li>
@@ -194,7 +194,7 @@ const NavMenu = styled.ul`
           span{
                font-size: 11px;
           }
-     }
+     } 
      @media screen and (max-width: 768px){
 
           display: none;
