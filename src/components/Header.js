@@ -215,7 +215,7 @@ const BurgerNavMenu = styled.div`
     z-index: 10;
     width: 300px;
     padding: 20px;
-    transform: ${props => props.show ? 'translateX(0)' : 'translateX(-100%)'}; /*I used negative 100% because translateX starts from left to right(0% to 100%) */
+    transform: ${props => props.show ? 'translateX(0)' : 'translateX(-100%)'};  /*I used negative 100% because translateX starts from left to right(0% to 100%) */
     transition: .3s ease-in-out;
     li{
           list-style-type: none;
